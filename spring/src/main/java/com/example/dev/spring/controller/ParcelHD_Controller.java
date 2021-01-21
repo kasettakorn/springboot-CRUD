@@ -49,30 +49,30 @@ public class ParcelHD_Controller {
 		return data.get(0);
 	}
 	
-	@DeleteMapping("/parcelhd/{parcelid}")
-	public ResponseEntity<Void> deleteParcelHD(@PathVariable String parcelid) {
-		ParcelHD parcelHD = parcelHD_Services.deleteByParcelId(parcelid);
-		
-		if(parcelHD != null) {
-			return ResponseEntity.noContent().build();
-		}
-		return ResponseEntity.notFound().build();
-	}
-	
-	@PutMapping("/parcelhd/{parcelid}")
-	public ResponseEntity<ParcelHD> updateParcelHD(@PathVariable String parcelid, @RequestBody ParcelHD parcelHD) {
-		parcelHD_Services.save(parcelHD);
-		
-		return new ResponseEntity<ParcelHD>(parcelHD, HttpStatus.OK);
-	}
-	
-	@PostMapping("/parcelhd")
-	public ResponseEntity<Void> createParcelHD(@RequestBody ParcelHD parcel_hd) {
-		ParcelHD createParcelHD = parcelHD_Services.save(parcel_hd);
-		
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{parcelid}").buildAndExpand(createParcelHD.getPARCEL_ID()).toUri();
-		
-		return ResponseEntity.created(uri).build();
-	}
+//	@DeleteMapping("/parcelhd/{parcelid}")
+//	public ResponseEntity<Void> deleteParcelHD(@PathVariable String parcelid) {
+//		ParcelHD parcelHD = parcelHD_Services.deleteByParcelId(parcelid);
+//		
+//		if(parcelHD != null) {
+//			return ResponseEntity.noContent().build();
+//		}
+//		return ResponseEntity.notFound().build();
+//	}
+//	
+//	@PutMapping("/parcelhd/{parcelid}")
+//	public ResponseEntity<ParcelHD> updateParcelHD(@PathVariable String parcelid, @RequestBody ParcelHD parcelHD) {
+//		parcelHD_Services.save(parcelHD);
+//		
+//		return new ResponseEntity<ParcelHD>(parcelHD, HttpStatus.OK);
+//	}
+//	
+//	@PostMapping("/parcelhd")
+//	public ResponseEntity<Void> createParcelHD(@RequestBody ParcelHD parcel_hd) {
+//		ParcelHD createParcelHD = parcelHD_Services.save(parcel_hd);
+//		
+//		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{parcelid}").buildAndExpand(createParcelHD.getPARCEL_ID()).toUri();
+//		
+//		return ResponseEntity.created(uri).build();
+//	}
 
 }
